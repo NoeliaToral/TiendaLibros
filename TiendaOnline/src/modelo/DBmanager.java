@@ -27,16 +27,6 @@ public class DBmanager {
 		}
 	}
 
-	/*public void statement(String query) {
-		try {
-			st = con.createStatement();
-			// String query = "SELECT * FROM Empleados;";
-			rs = st.executeQuery(query);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}*/
-
 	public void executeQuery(String query){
 		conectaBD();
 		//Consultas de tipo Select. Devuelve un ResultSet
