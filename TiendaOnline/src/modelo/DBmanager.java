@@ -59,7 +59,7 @@ public class DBmanager {
 		}
 	}
 	
-	public void cierraBD() {
+	private void cierraBD() {
 		try {
 			if(rs != null){
 				rs.close();
