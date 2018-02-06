@@ -19,9 +19,9 @@ public class DBmanager {
 			String password = "1111";
 			Class.forName(driverClassName);
 			con = DriverManager.getConnection(driverUrl, user, password);
-			//System.out.println("Se ha conectado a la base de datos");
+			System.out.println("Se ha conectado a la base de datos");
 		} catch (ClassNotFoundException e) {
-			//System.out.println("¡No se ha encontrado la clase!");
+			System.out.println("¡No se ha encontrado la clase!");
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -52,7 +52,7 @@ public class DBmanager {
 		conectaBD();
 		// Sentencias Update, Insert, Delete, Create
 		try {
-			//System.out.println("executeUpdate");
+			System.out.println("executeUpdate");
 			st = con.createStatement();
 			rows= st.executeUpdate(query); // Devuelve 0 si es consulta y 1
 												// al insertar.
