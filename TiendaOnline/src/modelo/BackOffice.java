@@ -24,10 +24,11 @@ public class BackOffice {
 		db.executeUpdate(query);
 	}
 
-	public void eliminarlibro(Libro libro){
+	public void eliminarlibro(long isbn){
 		
-		long libroborrado= libro.getISBN();
-		String querydelete= "DELETE FROM Libros WHERE ISBN="+ libroborrado;
+		//long libroborrado= libro.getISBN();
+		//String querydelete= "DELETE FROM Libros WHERE ISBN="+ libroborrado;
+		String querydelete= "DELETE FROM Libros WHERE ISBN="+ isbn;
 		new DBmanager().executeUpdate(querydelete);
 	}
 }
