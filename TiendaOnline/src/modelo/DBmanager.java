@@ -11,7 +11,7 @@ public class DBmanager {
 	private Statement st = null;
 	private ResultSet rs = null;
 
-	public void conectaBD() {
+	private void conectaBD() {
 		try {
 			String driverClassName = "com.mysql.jdbc.Driver";
 			String driverUrl = "jdbc:mysql://localhost:3306/tiendaonline?verifyServerCertificate=false&useSSL=true";
@@ -45,18 +45,21 @@ public class DBmanager {
 		}
 	}
 
-	public void executeUpdate(String query) {
+	public int executeUpdate(String query) {
+		int rows = 0;
+		
 		conectaBD();
 		// Sentencias Update, Insert, Delete, Create
 		try {
 			st = con.createStatement();
-			int num = st.executeUpdate(query); // Devuelve 0 si es consulta y 1
+			rows= st.executeUpdate(query); // Devuelve 0 si es consulta y 1
 												// al insertar.
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally{
 			cierraBD();
 		}
+		return rows;
 	}
 	
 	private void cierraBD() {

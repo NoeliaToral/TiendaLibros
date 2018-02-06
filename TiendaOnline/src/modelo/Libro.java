@@ -3,12 +3,12 @@ package modelo;
 public class Libro {
 
 	private long ISBN;
-	private String título;
+	private String titulo;
 	private int numPaginas;
 	private String idioma;
 	private double precio;
 	private String autor;
-	private int año;
+	private int anio;
 	private String sinopsis;
 
 	public Libro() {
@@ -16,16 +16,16 @@ public class Libro {
 
 	}
 
-	public Libro(long iSBN, String título, int numPaginas, String idioma, double precio, String autor, int año,
+	public Libro(long iSBN, String titulo, int numPaginas, String idioma, double precio, String autor, int anio,
 			String sinopsis) {
 		super();
 		this.ISBN = iSBN;
-		this.título = título;
+		this.titulo = titulo;
 		this.numPaginas = numPaginas;
 		this.idioma = idioma;
 		this.precio = precio;
 		this.autor = autor;
-		this.año = año;
+		this.anio = anio;
 		this.sinopsis = sinopsis;
 	}
 
@@ -38,12 +38,12 @@ public class Libro {
 		ISBN = iSBN;
 	}
 
-	public String getTítulo() {
-		return título;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setTítulo(String título) {
-		this.título = título;
+	public void setTitulo(String título) {
+		this.titulo = título;
 	}
 
 	public int getNumPaginas() {
@@ -78,12 +78,12 @@ public class Libro {
 		this.autor = autor;
 	}
 
-	public int getAño() {
-		return año;
+	public int getAnio() {
+		return anio;
 	}
 
-	public void setAño(int año) {
-		this.año = año;
+	public void setAnio(int año) {
+		this.anio = año;
 	}
 
 	public String getSinopsis() {

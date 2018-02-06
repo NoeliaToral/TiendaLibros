@@ -12,7 +12,18 @@ public class BackOffice {
 	 * @param	Libro libro.
 	 */
 	public void insertaLibro(Libro libro){
-		
+		//String query = "SELECT * FROM libros;";
+		//db.executeQuery(query);
+		System.out.println(libro.getISBN());
+		System.out.println(libro.getTitulo());
+		System.out.println(libro.getNumPaginas());		
+		System.out.println(libro.getIdioma());
+		System.out.println(libro.getPrecio());
+		System.out.println(libro.getAutor());
+		System.out.println(libro.getAnio());
+		System.out.println(libro.getSinopsis());
+		String query = "INSERT INTO libros (ISBN, titulo, numPaginas, idioma, precio, autor, fechaPublicacion, sinopsis) VALUES ("+ libro.getISBN() + ", " + libro.getTitulo() + "," + libro.getNumPaginas() + ", " + libro.getIdioma() + "," 
+													+ libro.getPrecio() + ", " + libro.getAutor() + ", " + libro.getAnio() + ", " + libro.getSinopsis() + ");";
+		db.executeUpdate(query);
 	}
-
 }
