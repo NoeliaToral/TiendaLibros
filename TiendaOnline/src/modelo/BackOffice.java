@@ -7,12 +7,7 @@ public class BackOffice {
 	 * @author	Felipe Collante.
 	 * @param	Libro libro.
 	 */
-	public void insertaLibro(Libro libro){
-		
-		
-		
-	}
-	
+
 	public void eliminarlibro(Libro libro){
 		
 		long libroborrado= libro.getISBN();
