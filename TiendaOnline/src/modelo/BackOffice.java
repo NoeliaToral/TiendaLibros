@@ -23,4 +23,11 @@ public class BackOffice {
 													+ libro.getPrecio() + ", '" + libro.getAutor() + "', " + libro.getAnio() + ", '" + libro.getSinopsis() + "');";
 		db.executeUpdate(query);
 	}
+
+	public void eliminarlibro(Libro libro){
+		
+		long libroborrado= libro.getISBN();
+		String querydelete= "DELETE FROM Libros WHERE ISBN="+ libroborrado;
+		new DBmanager().executeUpdate(querydelete);
+	}
 }
