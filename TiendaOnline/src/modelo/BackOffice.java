@@ -9,6 +9,16 @@ public class BackOffice {
 	 */
 	public void insertaLibro(Libro libro){
 		
+		
+		
+	}
+	
+	public void eliminarlibro(Libro libro){
+		
+		long libroborrado= libro.getISBN();
+		String querydelete= "DELETE FROM Libros WHERE ISBN="+ libroborrado;
+		new DBmanager().executeUpdate(querydelete);
+		
 	}
 
 }
