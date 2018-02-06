@@ -11,7 +11,7 @@ public class DBmanager {
 	private Statement st = null;
 	private ResultSet rs = null;
 
-	private void conectaBD() {
+	public void conectaBD() {
 		try {
 			String driverClassName = "com.mysql.jdbc.Driver";
 			String driverUrl = "jdbc:mysql://localhost:3306/tiendaonline?verifyServerCertificate=false&useSSL=true";
@@ -19,8 +19,9 @@ public class DBmanager {
 			String password = "1111";
 			Class.forName(driverClassName);
 			con = DriverManager.getConnection(driverUrl, user, password);
-			System.out.println("Se ha conectado a la base de datos");
+			//System.out.println("Se ha conectado a la base de datos");
 		} catch (ClassNotFoundException e) {
+			//System.out.println("¡No se ha encontrado la clase!");
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -31,7 +32,7 @@ public class DBmanager {
 		conectaBD();
 		//Consultas de tipo Select. Devuelve un ResultSet
 		try {
-			System.out.println("executeQuery");
+			//System.out.println("executeQuery");
 			st = con.createStatement();
 			ResultSet rs = st.executeQuery(query);
 			//Se procesan los resultados
@@ -51,6 +52,7 @@ public class DBmanager {
 		conectaBD();
 		// Sentencias Update, Insert, Delete, Create
 		try {
+			//System.out.println("executeUpdate");
 			st = con.createStatement();
 			rows= st.executeUpdate(query); // Devuelve 0 si es consulta y 1
 												// al insertar.
@@ -62,7 +64,7 @@ public class DBmanager {
 		return rows;
 	}
 	
-	private void cierraBD() {
+	public void cierraBD() {
 		try {
 			if(rs != null){
 				rs.close();
