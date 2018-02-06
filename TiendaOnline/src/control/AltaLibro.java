@@ -19,10 +19,21 @@ public class AltaLibro extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		obtenerDatosLibro(request, response);
+		eliminarLibro(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String alta = "alta";
+		String baja = "baja";
+		if(alta.equals(request.getParameter("alta"))){
+			obtenerDatosLibro( request,  response);
+		}
+		if(baja.equals(request.getParameter("baja"))){
+			System.out.println("eliminar libro");
+			eliminarLibro( request,  response);
+		}
+		
+		
 		doGet(request, response);
 	}
 	
@@ -38,6 +49,16 @@ public class AltaLibro extends HttpServlet {
 		libro.setSinopsis(request.getParameter("sinopsis"));
 		
 		new BackOffice().insertaLibro(libro);		
+	}
+	private void eliminarLibro(HttpServletRequest request, HttpServletResponse response){
+		long isbnn;
+		
+		String dato = request.getParameter("isbnn");
+		System.out.println("-----------"+dato);
+		isbnn = Long.parseLong(dato);
+		System.out.println("el isbnn es: "+isbnn);
+		System.out.println("----------- me voy");
+		new BackOffice().eliminarlibro(isbnn);
 	}
 
 }
