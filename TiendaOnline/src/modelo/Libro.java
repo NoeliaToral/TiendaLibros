@@ -42,8 +42,8 @@ public class Libro {
 		return titulo;
 	}
 
-	public void setTitulo(String título) {
-		this.titulo = título;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public int getNumPaginas() {
@@ -82,8 +82,8 @@ public class Libro {
 		return anio;
 	}
 
-	public void setAnio(int año) {
-		this.anio = año;
+	public void setAnio(int anio) {
+		this.anio = anio;
 	}
 
 	public String getSinopsis() {
