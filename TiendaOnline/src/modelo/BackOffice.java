@@ -1,6 +1,12 @@
 package modelo;
 
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 public class BackOffice {
+	
+	private PreparedStatement preparedStatement=null;
 	//Atributos
 	DBmanager db = new DBmanager();
 	
@@ -29,5 +35,12 @@ public class BackOffice {
 		long libroborrado= libro.getISBN();
 		String querydelete= "DELETE FROM Libros WHERE ISBN="+ libroborrado;
 		new DBmanager().executeUpdate(querydelete);
+	}
+	
+	public void modificarlibro(Libro libro){
+		String querymodificar="UPDATE Libros SET Titulo='"+libro.getTitulo()+"' , NumPaginas="+libro.getNumPaginas()+", Idioma='"+libro.getIdioma()+
+				"', Precio="+libro.getPrecio()+", Autor='"+libro.getAutor()+"', Anio="+libro.getAnio()+", Sinopsis='"+libro.getSinopsis()+"'WHERE ISBN="+libro.getISBN();
+		new DBmanager().executeUpdate(querymodificar);
+		
 	}
 }
