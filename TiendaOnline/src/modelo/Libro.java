@@ -94,4 +94,12 @@ public class Libro {
 		this.sinopsis = sinopsis;
 	}
 
+	@Override
+	public String toString() {
+		return "Libro [ISBN=" + ISBN + ", titulo=" + titulo + ", numPaginas=" + numPaginas + ", idioma=" + idioma
+				+ ", precio=" + precio + ", autor=" + autor + ", anio=" + anio + ", sinopsis=" + sinopsis + "]";
+	}
+	
+	
+
 }

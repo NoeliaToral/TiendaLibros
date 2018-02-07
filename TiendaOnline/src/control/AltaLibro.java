@@ -16,7 +16,10 @@ public class AltaLibro extends HttpServlet {
 	
 	//Métodos
 	/**
-	 * <p>Método obtenerDatosLibro 
+	 * <p>Método obtenerDatosLibro nos devuelve los datos del un objeto Libro dada una query</p>
+	 * <p>Método modificarLibro nos devuelve los datos del un objeto Libro dada una query</p>
+	 * <p>Método eliminarLibro nos devuelve los datos del un objeto Libro dada una query</p>
+	 * 
 	 */
 	
 	
@@ -26,10 +29,21 @@ public class AltaLibro extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		obtenerDatosLibro(request, response);
+		eliminarLibro(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String alta = "alta";
+		String baja = "baja";
+		if(alta.equals(request.getParameter("alta"))){
+			obtenerDatosLibro( request,  response);
+		}
+		if(baja.equals(request.getParameter("baja"))){
+			System.out.println("eliminar libro");
+			eliminarLibro( request,  response);
+		}
+		
+		
 		doGet(request, response);
 	}
 	
@@ -46,6 +60,7 @@ public class AltaLibro extends HttpServlet {
 		
 		new BackOffice().insertaLibro(libro);		
 	}
+
 	
 	private void modificarlibro(HttpServletRequest request, HttpServletResponse response){
 		Libro libro=new Libro();
@@ -57,10 +72,23 @@ public class AltaLibro extends HttpServlet {
 		libro.setAutor(request.getParameter("autor"));
 		libro.setAnio(Integer.parseInt(request.getParameter("fecha")));
 		libro.setSinopsis(request.getParameter("sinopsis"));
-		
 		new BackOffice().modificarlibro(libro);
-		response.sendRedirect("Listado.jsp");
 		
+		//response.sendRedirect("Listado.jsp");
+		
+	}
+		
+
+	private void eliminarLibro(HttpServletRequest request, HttpServletResponse response){
+		long isbnn;
+		
+		String dato = request.getParameter("isbnn");
+		System.out.println("-----------"+dato);
+		isbnn = Long.parseLong(dato);
+		System.out.println("el isbnn es: "+isbnn);
+		System.out.println("----------- me voy");
+		new BackOffice().eliminarlibro(isbnn);
+
 	}
 
 }
