@@ -13,7 +13,10 @@ public class BackOffice {
 	//Métodos
 	/**
 	 * <p>Inserta el libro que recibe como parámetro en la base de datos.</p>
+	 * <p>Elimina el libro que recibe como parámetro en la base de datos.</p>
+	 * <p>Modifca el libro que recibe como parámetro en la base de datos.</p>
 	 * @author	Felipe Collante.
+	 * @author  Javier Romero.
 	 * @param	Libro libro.
 	 */
 	public void insertaLibro(Libro libro){
