@@ -1,14 +1,17 @@
 package modelo;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 public class BackOffice {
 	
-	private PreparedStatement preparedStatement=null;
-	//Atributos
-	DBmanager db = new DBmanager();
+	private DBmanager db;
+	
+	public BackOffice() {
+		super();
+		db = new DBmanager();
+	}
 	
 	//Métodos
 	/**
@@ -31,17 +34,45 @@ public class BackOffice {
 	}
 
 	public void eliminarlibro(long isbn){
-		
-		//long libroborrado= libro.getISBN();
-		//String querydelete= "DELETE FROM Libros WHERE ISBN="+ libroborrado;
+	
 		String querydelete= "DELETE FROM Libros WHERE ISBN="+ isbn;
-		new DBmanager().executeUpdate(querydelete);
+		db.executeUpdate(querydelete);
+	}
+	
+	public Libro buscarLibro(long isbn){
+		String query="SELECT * FROM LIBROS WHERE ISBN="+isbn;
+		ResultSet rs=db.executeQuery(query);
+		Libro libro = null;
+		try {
+			libro = new Libro(rs.getLong("ISBN"),rs.getString("titulo"),rs.getInt("numPaginas"),
+					rs.getString("idioma"),rs.getDouble("precio"),rs.getString("autor"),rs.getInt("fechaPublicacion"),rs.getString("sinopsis"));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return libro;
+		
 	}
 	
 	public void modificarlibro(Libro libro){
 		String querymodificar="UPDATE Libros SET Titulo='"+libro.getTitulo()+"' , NumPaginas="+libro.getNumPaginas()+", Idioma='"+libro.getIdioma()+
 				"', Precio="+libro.getPrecio()+", Autor='"+libro.getAutor()+"', Anio="+libro.getAnio()+", Sinopsis='"+libro.getSinopsis()+"'WHERE ISBN="+libro.getISBN();
-		new DBmanager().executeUpdate(querymodificar);
+		db.executeUpdate(querymodificar);
 		
+	}
+	public ArrayList<Libro> listarLibros(){
+		String query = "SELECT * FROM LIBROS;";
+		ArrayList<Libro>libros=new ArrayList();
+		ResultSet rs=db.executeQuery(query);
+		try {
+			while(rs.next()){
+				Libro libro = new Libro(rs.getLong("ISBN"),rs.getString("titulo"),rs.getInt("numPaginas"),
+						rs.getString("idioma"),rs.getDouble("precio"),rs.getString("autor"),rs.getInt("fechaPublicacion"),rs.getString("sinopsis"));
+				libros.add(libro);
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return libros;
 	}
 }

@@ -1,6 +1,8 @@
 package control;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,26 +15,40 @@ import modelo.Libro;
 @WebServlet("/AltaLibro")
 public class AltaLibro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private BackOffice backOffice;
 
     public AltaLibro() {
-       
+       backOffice = new BackOffice();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		eliminarLibro(request, response);
+	String opcion = request.getParameter("opcion");
+	RequestDispatcher rd;
+		switch(opcion){
+		
+		case "alta":
+			obtenerDatosLibro( request,  response);
+			break;
+			
+		case "baja":
+			eliminarLibro( request,  response);
+			break;
+		case "paginaModificar":
+			long isbn=Long.parseLong(request.getParameter("isbn"));
+			request.setAttribute("libro",backOffice.buscarLibro(isbn));
+			rd=request.getRequestDispatcher("Modificar.jsp");
+			rd.forward(request,response);
+		case "listado":
+			request.setAttribute("listado",backOffice.listarLibros());
+			rd=request.getRequestDispatcher("Listado.jsp");
+			rd.forward(request,response);
+			break;
+		case "modificar":
+			
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String alta = "alta";
-		String baja = "baja";
-		if(alta.equals(request.getParameter("alta"))){
-			obtenerDatosLibro( request,  response);
-		}
-		if(baja.equals(request.getParameter("baja"))){
-			System.out.println("eliminar libro");
-			eliminarLibro( request,  response);
-		}
-		
 		
 		doGet(request, response);
 	}
@@ -48,7 +64,7 @@ public class AltaLibro extends HttpServlet {
 		libro.setAnio(Integer.parseInt(request.getParameter("fecha")));
 		libro.setSinopsis(request.getParameter("sinopsis"));
 		
-		new BackOffice().insertaLibro(libro);		
+		backOffice.insertaLibro(libro);		
 	}
 	private void eliminarLibro(HttpServletRequest request, HttpServletResponse response){
 		long isbnn;
@@ -58,7 +74,7 @@ public class AltaLibro extends HttpServlet {
 		isbnn = Long.parseLong(dato);
 		System.out.println("el isbnn es: "+isbnn);
 		System.out.println("----------- me voy");
-		new BackOffice().eliminarlibro(isbnn);
+		backOffice.eliminarlibro(isbnn);
 	}
 
 }

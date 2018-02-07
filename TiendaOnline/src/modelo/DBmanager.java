@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DBmanager {
 	private Connection con = null;
@@ -28,22 +29,22 @@ public class DBmanager {
 		}
 	}
 
-	public void executeQuery(String query){
+	public ResultSet executeQuery(String query){
 		conectaBD();
+		
 		//Consultas de tipo Select. Devuelve un ResultSet
 		try {
 			//System.out.println("executeQuery");
 			st = con.createStatement();
 			ResultSet rs = st.executeQuery(query);
 			//Se procesan los resultados
-			while(rs.next()){
-				System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getString(7) + "\t" + rs.getString(8));
-			}
+		
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally{
 			cierraBD();
 		}
+		return rs;
 	}
 
 	public int executeUpdate(String query) {
