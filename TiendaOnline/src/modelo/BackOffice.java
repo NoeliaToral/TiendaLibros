@@ -1,14 +1,17 @@
 package modelo;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 public class BackOffice {
 	
-	private PreparedStatement preparedStatement=null;
-	//Atributos
-	DBmanager db = new DBmanager();
+	private DBmanager db;
+	
+	public BackOffice() {
+		super();
+		db = new DBmanager();
+	}
 	
 	//Métodos
 	/**
@@ -30,21 +33,31 @@ public class BackOffice {
 		System.out.println(libro.getSinopsis());
 		String query = "INSERT INTO libros (ISBN, titulo, numPaginas, idioma, precio, autor, fechaPublicacion, sinopsis) VALUES ("+ libro.getISBN() + ", '" + libro.getTitulo() + "'," + libro.getNumPaginas() + ", '" + libro.getIdioma() + "'," 
 													+ libro.getPrecio() + ", '" + libro.getAutor() + "', " + libro.getAnio() + ", '" + libro.getSinopsis() + "');";
-		db.executeUpdate(query);
+		db.modificar(query);
 	}
 
 	public void eliminarlibro(long isbn){
-		
-		//long libroborrado= libro.getISBN();
-		//String querydelete= "DELETE FROM Libros WHERE ISBN="+ libroborrado;
+	
 		String querydelete= "DELETE FROM Libros WHERE ISBN="+ isbn;
-		new DBmanager().executeUpdate(querydelete);
+		db.modificar(querydelete);
+	}
+	
+	public Libro buscarLibro(long isbn){
+		String query="SELECT * FROM LIBROS WHERE ISBN="+isbn;
+		return db.buscarLibro(query);
+		
+		
 	}
 	
 	public void modificarlibro(Libro libro){
 		String querymodificar="UPDATE Libros SET Titulo='"+libro.getTitulo()+"' , NumPaginas="+libro.getNumPaginas()+", Idioma='"+libro.getIdioma()+
-				"', Precio="+libro.getPrecio()+", Autor='"+libro.getAutor()+"', Anio="+libro.getAnio()+", Sinopsis='"+libro.getSinopsis()+"'WHERE ISBN="+libro.getISBN();
-		new DBmanager().executeUpdate(querymodificar);
+				"', Precio="+libro.getPrecio()+", Autor='"+libro.getAutor()+"', fechaPublicacion="+libro.getAnio()+", Sinopsis='"+libro.getSinopsis()+"'WHERE ISBN="+libro.getISBN();
+		db.modificar(querymodificar);
 		
+	}
+	public ArrayList<Libro> listarLibros(){
+		String query = "SELECT * FROM LIBROS;";
+		
+		return db.listarLibros(query);
 	}
 }

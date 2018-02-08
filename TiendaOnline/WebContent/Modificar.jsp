@@ -12,39 +12,40 @@
 		<table>
 		<tr>
 			<th>ISBN</th>
-			<td><input type="text" name="ISBN" value="${Libro.ISBN}"/></td>
+			<td><input type="text" name="codigo" value="${libro.ISBN}" disabled="disabled"/></td>
+			<td><input type="hidden" name="isbn" value="${libro.ISBN}"/></td>
 		</tr>
 		<tr>
 			<th>titulo</th>
-			<td><input type="text" name="titulo" value="${Libro.titulo}"/></td>
+			<td><input type="text" name="titulo" value="${libro.titulo}"/></td>
 		</tr>
 		<tr>
 			<th>numPaginas</th>
-			<td><input type="text" name="numPaginas" value="${Libro.numPaginas}"/></td>
+			<td><input type="text" name="numPaginas" value="${libro.numPaginas}"/></td>
 		</tr>
 		<tr>
 			<th>idioma</th>
-			<td><input type="text" name="idioma" value="${Libro.idioma}"/></td>
+			<td><input type="text" name="idioma" value="${libro.idioma}"/></td>
 		</tr>
 		<tr>
 			<th>precio</th>
-			<td><input type="text" name="precio" value="${Libro.precio}"/></td>
+			<td><input type="text" name="precio" value="${libro.precio}"/></td>
 		</tr>
 		<tr>
 			<th>autor</th>
-			<td><input type="text" name="autor" value="${Libro.autor}"/></td>
+			<td><input type="text" name="autor" value="${libro.autor}"/></td>
 		</tr>
 		<tr>
 			<th>anio</th>
-			<td><input type="text" name="anio" value="${Libro.anio}"/></td>
+			<td><input type="text" name="fecha" value="${libro.anio}"/></td>
 		</tr>
 		<tr>
 			<th>sinopsis</th>
-			<td><input type="text" name="sinopsis" value="${Libro.sinopsis}"/></td>
+			<td><input type="text" name="sinopsis" value="${libro.sinopsis}"/></td>
 		</tr>
 		</table>
 		<input type="submit" value="Modificar datos" />
-		<input type="hidden" name="Modificar" value="Modificar" />
+		<input type="hidden" name="opcion" value="modificar" />
 		</form>
 	</body>
 </html>

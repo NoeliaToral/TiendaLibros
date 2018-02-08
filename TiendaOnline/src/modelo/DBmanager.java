@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DBmanager {
 	private Connection con = null;
@@ -28,51 +29,73 @@ public class DBmanager {
 		}
 	}
 
-	public void executeQuery(String query){
+	public ArrayList<Libro> listarLibros(String query) {
 		conectaBD();
-		//Consultas de tipo Select. Devuelve un ResultSet
+		ResultSet rs = null;
+		ArrayList<Libro> libros = new ArrayList();
+		// Consultas de tipo Select. Devuelve un ResultSet
 		try {
-			//System.out.println("executeQuery");
+			// System.out.println("executeQuery");
 			st = con.createStatement();
-			ResultSet rs = st.executeQuery(query);
-			//Se procesan los resultados
-			while(rs.next()){
-				System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getString(7) + "\t" + rs.getString(8));
+			rs = st.executeQuery(query);
+			// Se procesan los resultados
+			while (rs.next()) {
+				Libro libro = new Libro(rs.getLong("ISBN"), rs.getString("titulo"), rs.getInt("numPaginas"),
+						rs.getString("idioma"), rs.getDouble("precio"), rs.getString("autor"),
+						rs.getInt("fechaPublicacion"), rs.getString("sinopsis"));
+				libros.add(libro);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally{
+		} finally {
 			cierraBD();
 		}
+		return libros;
 	}
 
-	public int executeUpdate(String query) {
+	public int modificar(String query) {
 		int rows = 0;
-		
+
 		conectaBD();
 		// Sentencias Update, Insert, Delete, Create
 		try {
 			System.out.println("executeUpdate");
 			st = con.createStatement();
-			rows= st.executeUpdate(query); // Devuelve 0 si es consulta y 1
-												// al insertar.
+			rows = st.executeUpdate(query); // Devuelve 0 si es consulta y 1
+											// al insertar.
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally{
+		} finally {
 			cierraBD();
 		}
 		return rows;
 	}
-	
+
+	public Libro buscarLibro(String query){
+		Libro libro = null;
+		conectaBD();
+		try{
+		st=con.createStatement();
+		rs=st.executeQuery(query);
+		rs.next();
+	    libro = new Libro(rs.getLong("ISBN"),rs.getString("titulo"),rs.getInt("numPaginas"),
+					rs.getString("idioma"),rs.getDouble("precio"),rs.getString("autor"),rs.getInt("fechaPublicacion"),rs.getString("sinopsis"));
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return libro;
+	}
+
 	public void cierraBD() {
 		try {
-			if(rs != null){
+			if (rs != null) {
 				rs.close();
 			}
-			if(st != null){
+			if (st != null) {
 				st.close();
 			}
-			if(con != null){
+			if (con != null) {
 				con.close();
 			}
 		} catch (SQLException e) {
