@@ -7,10 +7,10 @@ import java.sql.PreparedStatement;
 public class BackOffice {
 	
 	
-	//Atributos
+	//ATRIBUTOS
 	DBmanager db = new DBmanager();
 	
-	//Métodos
+	//METODOS
 	/**
 	 * <p>Inserta el libro que recibe como parámetro en la base de datos.</p>
 	 * <p>Elimina el libro que recibe como parámetro en la base de datos.</p>
@@ -35,8 +35,7 @@ public class BackOffice {
 
 	public void eliminarlibro(long isbn){
 		
-		//long libroborrado= libro.getISBN();
-		//String querydelete= "DELETE FROM Libros WHERE ISBN="+ libroborrado;
+		
 		String querydelete= "DELETE FROM Libros WHERE ISBN="+ isbn;
 		new DBmanager().executeUpdate(querydelete);
 	}
