@@ -2,54 +2,126 @@
 <html lang="en">
 
 <head>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <meta charset="UTF-8">
 <title>AltaLibro</title>
 </head>
 <body>
-	
-		<h1>Introduzca los datos del libro a registrar.</h1>
-		<form action="AltaLibro" method="post">
-			<table>
-				<tr>
-					<td><label for="ISBN">ISBN:</label></td>
-					<td><input type="text" name="isbn"></td>
-				</tr>
-				<tr>
-					<td><label for="titulo">Título:</label></td>
-					<td><input type="text" name="titulo"></td>
-				</tr>
-				<tr>
-					<td><label for="numPaginas">Nº páginas:</label></td>
-					<td><input type="text" name="numPaginas"></td>
-				</tr>
-				<tr>
-					<td><label for="idioma">Idioma:</label></td>
-					<td><input type="text" name="idioma"></td>
-				</tr>
-				<tr>
-					<td><label for="precio">Precio:</label></td>
-					<td><input type="text" name="precio"></td>
-				</tr>
-				<tr>
-					<td><label for="autor">Autor:</label></td>
-					<td><input type="text" name="autor"></td>
-				</tr>
-				<tr>
-					<td><label for="fecha">Año:</label></td>
-					<td><input type="text" name="fecha"></td>
-				</tr>
-				<tr>
-					<td><label for="sinopsis">Sinopsis:</label></td>
-					<td><textarea name="sinopsis" cols="50" rows="10"></textarea></td>
-				</tr>
-				<tr>
-					<td><input type="reset" value="Limpiar"></td>
-					<td><input type="submit" value="Registrar"></td>
-				</tr>
-					<input type="hidden" value="alta">
-			</table>
+	<!-- 	<div class="container"> -->
+	<h1>Introduzca los datos del libro a registrar.</h1>
+	<!-- 				<form	 class = "formAlta" action="AltaLibro" method="post"> -->
+	<!-- 					<table> -->
+	<!-- 						<tr> -->
+	<!-- 							<td> <p class="comment-form-author"><label for="ISBN">ISBN:</label></td> -->
+	<!-- 							<td><input type="text" name="isbn"></td> -->
+	<!-- 						</tr> -->
+	<!-- 						<tr> -->
+	<!-- 							<td><label for="titulo">Título:</label></td> -->
+	<!-- 							<td><input type="text" name="titulo"></td> -->
+	<!-- 						</tr> -->
+	<!-- 						<tr> -->
+	<!-- 							<td><label for="numPaginas">Nº páginas:</label></td> -->
+	<!-- 							<td><input type="text" name="numPaginas"></td> -->
+	<!-- 						</tr> -->
+	<!-- 						<tr> -->
+	<!-- 							<td><label for="idioma">Idioma:</label></td> -->
+	<!-- 							<td><input type="text" name="idioma"></td> -->
+	<!-- 						</tr> -->
+	<!-- 						<tr> -->
+	<!-- 							<td><label for="precio">Precio:</label></td> -->
+	<!-- 							<td><input type="text" name="precio"></td> -->
+	<!-- 						</tr> -->
+	<!-- 						<tr> -->
+	<!-- 							<td><label for="autor">Autor:</label></td> -->
+	<!-- 							<td><input type="text" name="autor"></td> -->
+	<!-- 						</tr> -->
+	<!-- 						<tr> -->
+	<!-- 							<td><label for="fecha">Año:</label></td> -->
+	<!-- 							<td><input type="text" name="fecha"></td> -->
+	<!-- 						</tr> -->
+	<!-- 						<tr> -->
+	<!-- 							<td><label for="sinopsis">Sinopsis:</label></td> -->
+	<!-- 							<td><textarea name="sinopsis"  rows="10"></textarea></td> -->
+	<!-- 						</tr> -->
+	<!-- 						<tr> -->
+	<!-- 							<td><input type="reset" value="Limpiar"></td> -->
+	<!-- 							<td><input type="submit" value="Registrar"></td> -->
+	<!-- 						</tr> -->
+	<!-- 							<input type="hidden" value="alta"> -->
+	<!-- 					</table> -->
+	<!-- 				</form> -->
+	<!-- 		<form class="formAlta" action="AltaLibro" method="post"> -->
+
+	<!-- 			<label for="ISBN">ISBN:</label> <input type="text" name="isbn"> -->
+	<!-- 			<br> -->
+	<!-- 			<label for="titulo">Título:</label> <input type="text" name="titulo"> -->
+	<!-- 			<br> -->
+	<!-- 			<label for="numPaginas">Nº páginas:</label>	<input type="text" name="numPaginas"> -->
+	<!-- 		</form> -->
+	<div class="container">
+		<h2 class="tituloH2">Introduzca los datos del libro a registrar</h2>
+		<form class="form-horizontal" action="/action_page.php">
+			<div class="form-group">
+				<label class="control-label col-sm-4" for="ISBN">ISBN:</label>
+				<div class="col-sm-4">
+					<input type="email" class="form-control" id="email"
+						placeholder="Enter email" name="email">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-4" for="titulo">Título:</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="titulo"
+						placeholder="Enter titulo" name="titulo">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-4" for="numPaginas">Número
+					de páginas:</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="numPaginas"
+						placeholder="Enter numero de paginas" name="numPaginas">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-4" for="idioma">Idioma:</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="idioma"
+						placeholder="Enter idioma" name="idioma">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-4" for="precio">Precio:</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="precio"
+						placeholder="Enter precio" name="precio">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-4" for="fecha">Fecha de
+					publicación:</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="fecha"
+						placeholder="Enter fecha" name="fecha">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-4" for="sinopsis">Sinopsis:</label>
+				<div class="col-sm-4">
+					<textarea class="form-control" id="sinopsis"
+						placeholder="Enter sinopsis" name="sinopsis" cols="10" rows="10"></textarea>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-7 col-sm-10">
+					<button type="submit" class="btn btn-default">Enviar</button>
+				</div>
+			</div>
 		</form>
-	
+	</div>
 </body>
 
 </html>
