@@ -42,7 +42,6 @@ public class AltaUsuario extends HttpServlet {
 		usuario.setNombreUS(request.getParameter("nombreUS"));
 		usuario.setDireccionUS(request.getParameter("direccionUS"));
 		usuario.setMailUS(request.getParameter("mailUS"));
-		usuario.setIdUS(Integer.parseInt(request.getParameter("idUS")));
 		usuario.setPasswordUS(request.getParameter("passwordUS"));
 		backofficeUS.insertarUsuario(usuario);
 		
