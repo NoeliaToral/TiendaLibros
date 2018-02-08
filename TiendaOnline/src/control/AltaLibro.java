@@ -43,8 +43,6 @@ public class AltaLibro extends HttpServlet {
 			System.out.println("eliminar libro");
 			eliminarLibro( request,  response);
 		}
-		
-		
 		doGet(request, response);
 	}
 	

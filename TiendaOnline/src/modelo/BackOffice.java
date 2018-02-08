@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 public class BackOffice {
 	
-	private PreparedStatement preparedStatement=null;
+	
 	//Atributos
 	DBmanager db = new DBmanager();
 	
