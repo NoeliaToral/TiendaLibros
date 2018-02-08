@@ -6,14 +6,18 @@ import java.util.ArrayList;
 
 public class BackOffice {
 	
+
 	private DBmanager db;
 	
 	public BackOffice() {
 		super();
 		db = new DBmanager();
 	}
+
 	
-	//Métodos
+	
+	
+	//METODOS
 	/**
 	 * <p>Inserta el libro que recibe como parámetro en la base de datos.</p>
 	 * <p>Elimina el libro que recibe como parámetro en la base de datos.</p>
@@ -37,7 +41,7 @@ public class BackOffice {
 	}
 
 	public void eliminarlibro(long isbn){
-	
+
 		String querydelete= "DELETE FROM Libros WHERE ISBN="+ isbn;
 		db.modificar(querydelete);
 	}

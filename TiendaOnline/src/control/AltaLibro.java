@@ -67,7 +67,17 @@ public class AltaLibro extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+		String alta = "alta";
+		String baja = "baja";
+		if(alta.equals(request.getParameter("alta"))){
+			obtenerDatosLibro( request,  response);
+		}
+		if(baja.equals(request.getParameter("baja"))){
+			System.out.println("eliminar libro");
+			eliminarLibro( request,  response);
+		}
+
 		doGet(request, response);
 	}
 	
