@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    pageEncoding="ISO-8859-1"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,8 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<center>
-		<h1>Listado de libros.</h1>
+<h3>Listado de libros.</h3>
 		<form action="AltaLibro" method="post">
 			<table>
 			<tr>
@@ -33,12 +32,10 @@
 						<td><c:out value="${libro.precio}"></c:out></td>
 						<td><c:out value="${libro.autor}"></c:out></td>
 						<td><c:out value="${libro.anio}"></c:out></td>
-						<td><a href="AltaLibro?opcion=paginaModificar&isbn=${libro.ISBN}">Modificar</a></td>
-						<td><a href="AltaLibro?opcion=eliminar&isbn=${libro.ISBN}">Eliminar</a></td>
-					</tr>
+						<td><a href="http://localhost:3306/TiendaOnline/ListadoClientes.jsp">Comprar libro</a></td>
+						</tr>
 				</c:forEach>
 			</table>
 		</form>
-	</center>
 </body>
 </html>

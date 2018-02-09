@@ -94,7 +94,12 @@ public class AltaUsuario extends HttpServlet {
 		usuario.setPasswordUS(request.getParameter("passwordUS"));
 		backofficeUS.modificarUsuario(usuario);
 		
-		//response.sendRedirect("Listado.jsp");
+		try {
+			response.sendRedirect("Listado.jsp");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 		
