@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
+<title>Tienda online de libros</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -20,10 +19,8 @@
 	href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900'
 	rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Modificar libro</title>
 </head>
-	<body>
+<body>
 	<div class="header">
 		<div class="header_top">
 			<div class="container">
@@ -63,69 +60,61 @@
 		</div>
 	</div>
 	
-	<div class="container">
-  <h2 class="tituloH2">Modificación de los datos de un libro</h2>
-  <form class="form-horizontal" action="AltaLibro" method="POST">
- 
+
+<div class="container">
+  <h2 class="tituloH2">Introduzca los datos del libro a registrar</h2>
+  <form class="form-horizontal" action="/action_page.php">
     <div class="form-group">
       <label class="control-label col-sm-4" for="ISBN">ISBN:</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" name="codigo" value="${libro.ISBN}" id="email" placeholder="Enter codigo" name="codigo">
-        <input type="hidden" name="isbn" value="${libro.ISBN}"/>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-4" for="titulo">Título:</label>
       <div class="col-sm-4">          
-        <input type="text" class="form-control" name="titulo" value="${libro.titulo}" id="titulo" placeholder="Enter titulo" name="titulo">
+        <input type="text" class="form-control" id="titulo" placeholder="Enter titulo" name="titulo">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-4" for="numPaginas">Número de páginas:</label>
       <div class="col-sm-4">          
-        <input type="text" class="form-control" name="numPaginas" value="${libro.numPaginas}" id="numPaginas" placeholder="Enter numero de paginas" name="numPaginas">
+        <input type="text" class="form-control" id="numPaginas" placeholder="Enter numero de paginas" name="numPaginas">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-4" for="idioma">Idioma:</label>
       <div class="col-sm-4">          
-        <input type="text" class="form-control" name="idioma" value="${libro.idioma}" id="idioma" placeholder="Enter idioma" name="idioma">
+        <input type="text" class="form-control" id="idioma" placeholder="Enter idioma" name="idioma">
       </div>
     </div>
      <div class="form-group">
       <label class="control-label col-sm-4" for="precio">Precio:</label>
       <div class="col-sm-4">          
-        <input type="text" class="form-control" name="precio" value="${libro.precio}" id="precio" placeholder="Enter precio" name="precio">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-4" for="autor">Autor:</label>
-      <div class="col-sm-4">          
-        <input type="text" class="form-control" name="autor" value="${libro.autor}" id="autor" placeholder="Enter autor" name="autor">
+        <input type="text" class="form-control" id="precio" placeholder="Enter precio" name="precio">
       </div>
     </div>
      <div class="form-group">
       <label class="control-label col-sm-4" for="fecha">Fecha de publicación:</label>
       <div class="col-sm-4">          
-        <input type="text" class="form-control" name="fecha" value="${libro.anio}" id="fecha" placeholder="Enter fecha" name="fecha">
+        <input type="text" class="form-control" id="fecha" placeholder="Enter fecha" name="fecha">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-4" for="sinopsis">Sinopsis:</label>
       <div class="col-sm-4">          
-        <textarea class="form-control" name="sinopsis" value="${libro.sinopsis}" id="sinopsis" placeholder="Enter sinopsis" name="sinopsis" cols="10" rows="10"></textarea>
+        <textarea class="form-control" id="sinopsis" placeholder="Enter sinopsis" name="sinopsis" cols="10" rows="10"></textarea>
       </div>
     </div>
    
     <div class="form-group">        
       <div class="col-sm-offset-7 col-sm-10">
         <button type="submit" class="btn btn-default">Enviar</button>
-        <input type="hidden" name="opcion" value="Modificar datos" />
       </div>
     </div>
   </form>
 </div>
-		
+	
 	<div class="footer_bg"></div>
 	<div class="footer">
 		<div class="container">
@@ -154,14 +143,11 @@
 				</ul>
 			</div>
 			<div class="col-md-6 f_grid3">
-				<h3>Contact Info</h3>
+				<h3>Contactanos</h3>
 				<ul class="list">
-					<li><p>Phone : 1.800.254.5487</p></li>
-					<li><p>Fax : 1.800.254.2548</p></li>
-					<li><p>
-							Email : <a href="mailto:info(at)fashionpress.com">
-								info(at)fashionpress.com</a>
-						</p></li>
+					<li><p>Noelia Toral Jiménez</p></li>
+					<li><p>Raul Soriano</p></li>
+					<li><p>Javier </p></li>	
 				</ul>
 				<ul class="list1">
 					<li><p>Aliquam augue a bibendum ipsum diam, semper
@@ -191,6 +177,5 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	</body>
-	
+</body>
 </html>
