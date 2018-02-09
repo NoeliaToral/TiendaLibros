@@ -10,6 +10,7 @@ public class Libro {
 	private String autor;
 	private int anio;
 	private String sinopsis;
+	String url;
 
 	public Libro() {
 		super();
@@ -17,7 +18,7 @@ public class Libro {
 	}
 
 	public Libro(long iSBN, String titulo, int numPaginas, String idioma, double precio, String autor, int anio,
-			String sinopsis) {
+			String sinopsis, String url) {
 		super();
 		this.ISBN = iSBN;
 		this.titulo = titulo;
@@ -27,6 +28,7 @@ public class Libro {
 		this.autor = autor;
 		this.anio = anio;
 		this.sinopsis = sinopsis;
+		this.url = url;
 	}
 
 
@@ -92,6 +94,15 @@ public class Libro {
 
 	public void setSinopsis(String sinopsis) {
 		this.sinopsis = sinopsis;
+	}
+	
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	@Override

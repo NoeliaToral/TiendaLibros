@@ -5,40 +5,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/style2.css" rel='stylesheet' type='text/css' />
 <title>Insert title here</title>
 </head>
 <body>
-	<center>
+	
 		<h1>Listado de libros.</h1>
 		<form action="AltaLibro" method="post">
-			<table>
-			<tr>
-				<th><label for="ISBN">ISBN:</label></th>
-				<th><label for="titulo">Título:</label></th>
-				<th><label for="numPaginas">Nº páginas:</label></th>
-				<th><label for="idioma">Idioma:</label></th>
-				<th><label for="precio">Precio:</label></th>
-				<th><label for="autor">Autor:</label></th>
-				<th><label for="fecha">Año:</label></th>
-				<th><label for="opciones">Opciones:</label></th>
-				
-			</tr>
-				<c:forEach var="libro" items="${listado}">
-					<tr>
+			
+			
+			<div class="col-md-9 content_right centrar">
+			<c:forEach var="libro" items="${listado}">
+					<div class="contenedor">
+					<span><img src="${libro.url}"></span>
 					
-						<td><c:out value="${libro.ISBN}"></c:out></td>
-						<td><c:out value="${libro.titulo}"></c:out></td>
-						<td><c:out value="${libro.numPaginas}"></c:out></td>
-						<td><c:out value="${libro.idioma}"></c:out></td>
-						<td><c:out value="${libro.precio}"></c:out></td>
-						<td><c:out value="${libro.autor}"></c:out></td>
-						<td><c:out value="${libro.anio}"></c:out></td>
-						<td><a href="AltaLibro?opcion=paginaModificar&isbn=${libro.ISBN}">Modificar</a></td>
-						<td><a href="AltaLibro?opcion=eliminar">Eliminar</a></td>
-					</tr>
+						<div class="columnasLibros">
+							ISBN: <c:out value="${libro.ISBN}"></c:out><br>
+							Titulo: <c:out value="${libro.titulo}"></c:out><br>
+							Número de páginas: <c:out value="${libro.numPaginas}"></c:out><br>
+							Idioma: <c:out value="${libro.idioma}"></c:out><br>
+							Precio: <c:out value="${libro.precio}"></c:out><br>
+							Autor: <c:out value="${libro.autor}"></c:out><br>
+							Año: <c:out value="${libro.anio}"></c:out>
+						</div>
+					</div>
 				</c:forEach>
-			</table>
+				</div>
 		</form>
-	</center>
+	
 </body>
 </html>

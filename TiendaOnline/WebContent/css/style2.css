@@ -1,0 +1,38 @@
+body{
+	width: 100%;	
+}
+.centrar{
+	width: 980px;
+	margin: 0 auto;
+}
+.tituloH2 {
+	text-align: center;
+	margin-bottom: 23px;
+	margin-top: 15px;
+}
+
+.contenedor{
+  display: inline-block;
+  margin: 20px;
+}
+
+span{
+  background-color:red;
+}
+
+h1{
+	text-align:center;
+}
+.imagenLibros{
+	height: 224px;
+	width:152px;
+}
+
+.img-responsive{
+	height: 700px !important;
+}
+
+.banner_desc.desc h1{
+	color: black;
+	font-weight: bold;
+}

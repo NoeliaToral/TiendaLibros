@@ -42,7 +42,7 @@ public class DBmanager {
 			while (rs.next()) {
 				Libro libro = new Libro(rs.getLong("ISBN"), rs.getString("titulo"), rs.getInt("numPaginas"),
 						rs.getString("idioma"), rs.getDouble("precio"), rs.getString("autor"),
-						rs.getInt("fechaPublicacion"), rs.getString("sinopsis"));
+						rs.getInt("fechaPublicacion"), rs.getString("sinopsis"), rs.getString("url"));
 				libros.add(libro);
 			}
 		} catch (SQLException e) {
@@ -79,7 +79,7 @@ public class DBmanager {
 		rs=st.executeQuery(query);
 		rs.next();
 	    libro = new Libro(rs.getLong("ISBN"),rs.getString("titulo"),rs.getInt("numPaginas"),
-					rs.getString("idioma"),rs.getDouble("precio"),rs.getString("autor"),rs.getInt("fechaPublicacion"),rs.getString("sinopsis"));
+					rs.getString("idioma"),rs.getDouble("precio"),rs.getString("autor"),rs.getInt("fechaPublicacion"),rs.getString("sinopsis"),rs.getString("url"));
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
