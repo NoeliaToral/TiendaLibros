@@ -52,6 +52,30 @@ public class DBmanager {
 		}
 		return libros;
 	}
+	
+	public ArrayList<Usuario> listarUsuario(String query) {
+		conectaBD();
+		ResultSet rs = null;
+		ArrayList<Usuario> Usuarios = new ArrayList();
+		// Consultas de tipo Select. Devuelve un ResultSet
+		try {
+			// System.out.println("executeQuery");
+			st = con.createStatement();
+			rs = st.executeQuery(query);
+			// Se procesan los resultados
+			while (rs.next()) {
+				Usuario usuario = new Usuario( rs.getString("nombre"),
+						rs.getString("direccion"), rs.getString("correo"),rs.getInt("id"),
+						 rs.getString("cont"));
+				Usuarios.add(usuario);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			cierraBD();
+		}
+		return Usuarios;
+	}
 
 	public int modificar(String query) {
 		int rows = 0;
@@ -85,6 +109,21 @@ public class DBmanager {
 		}
 		
 		return libro;
+	}
+	
+	public Usuario buscarUsuario(String query){
+		Usuario usuario = null;
+		conectaBD();
+		try{
+		st=con.createStatement();
+		rs=st.executeQuery(query);
+		rs.next();
+	    usuario = new Usuario(rs.getString("nombre"),rs.getString("direccion"),rs.getString("correo"),rs.getInt("is"),rs.getString("cont"));
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return usuario;
 	}
 
 	public void cierraBD() {

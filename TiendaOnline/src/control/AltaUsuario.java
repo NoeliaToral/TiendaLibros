@@ -1,6 +1,8 @@
 package control;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,16 +20,48 @@ import modelo.Usuario;
 @WebServlet("/AltaUsuario")
 public class AltaUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private BackOfficeUS backofficeUS;
 
-    BackOfficeUS backofficeUS=new BackOfficeUS();
+    
   
     public AltaUsuario() {
-        super();
+        backofficeUS= new BackOfficeUS();
        
     }
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String opcionUS = request.getParameter("opcion");
+		RequestDispatcher rd;
+			switch(opcionUS){
+			
+			case "altaUS":
+				backofficeUS.insertarUsuario(obtenerdatosUsuario( request,  response));		
+				break;
+				
+			case "bajaUS":
+				eliminarUsuario( request,  response);
+				break;
+			case "paginaModificarUS":
+				String codigo=request.getParameter("id");
+				int id=Integer.parseInt(codigo);
+				request.setAttribute("libro",backofficeUS.buscarUsuario(id));
+				rd=request.getRequestDispatcher("ModificarUS.jsp");
+				rd.forward(request,response);
+				break;
+			case "listadoUsuario":
+				request.setAttribute("listado",backofficeUS.listarUsuario());
+				rd=request.getRequestDispatcher("Listado.jsp");
+				rd.forward(request,response);
+				break;
+			case "modificarUS":
+				backofficeUS.modificarUsuario(obtenerdatosUsuario(request,response));
+				rd=request.getRequestDispatcher("Index.html");
+				rd.forward(request,response);
+				break;
+			}
 		
 		
 		obtenerdatosUsuario(request, response);
@@ -39,16 +73,16 @@ public class AltaUsuario extends HttpServlet {
 		obtenerdatosUsuario(request, response);
 	}
 	
-	public void obtenerdatosUsuario(HttpServletRequest request, HttpServletResponse response){
+	private Usuario obtenerdatosUsuario(HttpServletRequest request, HttpServletResponse response){
 		Usuario usuario=new Usuario();
 		usuario.setNombreUS(request.getParameter("nombreUS"));
 		usuario.setDireccionUS(request.getParameter("direccionUS"));
 		usuario.setMailUS(request.getParameter("mailUS"));
 		usuario.setPasswordUS(request.getParameter("passwordUS"));
 		backofficeUS.insertarUsuario(usuario);
-		
-		
 		System.out.println(usuario.toString());
+		
+		return usuario;
 	}
 	
 	private void modificarUsuario(HttpServletRequest request, HttpServletResponse response){
@@ -58,8 +92,7 @@ public class AltaUsuario extends HttpServlet {
 		usuario.setDireccionUS(request.getParameter("direccionUS"));
 		usuario.setMailUS(request.getParameter("direccionUS"));
 		usuario.setPasswordUS(request.getParameter("passwordUS"));
-		
-		new BackOfficeUS().modificarUsuario(usuario);
+		backofficeUS.modificarUsuario(usuario);
 		
 		//response.sendRedirect("Listado.jsp");
 		

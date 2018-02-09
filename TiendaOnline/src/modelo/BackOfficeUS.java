@@ -1,9 +1,11 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class BackOfficeUS {
 	
 	//Atributos
-	DBmanager dbUS= new DBmanager();
+	DBmanager dbUS;
 	//METODOS
 		/**
 		 * <p>Inserta el usuario que recibe como parámetro en la base de datos.</p>
@@ -12,6 +14,11 @@ public class BackOfficeUS {
 		 * @author  Javier Romero.
 		 * @param	Usuario usuario.
 		 */
+	
+	public BackOfficeUS() {
+		super();
+		dbUS = new DBmanager();
+	}
 	
 	public void insertarUsuario(Usuario usuario){
 		System.out.println(usuario.getNombreUS());
@@ -30,11 +37,22 @@ public class BackOfficeUS {
 		new DBmanager().modificar(querydeleteUS);
 	}
 	
+	public Usuario buscarUsuario(int idUS){
+		String query="SELECT * FROM usuario WHERE id="+idUS;
+		return dbUS.buscarUsuario(query);
+	}
+	
 	public void modificarUsuario(Usuario usuario){
 		String querymodificarUS="UPDATE usuario SET nombre='"+usuario.getNombreUS()+"', correo='"+usuario.getMailUS()+
 				"', direccion='"+usuario.getDireccionUS()+"', cont='"+usuario.getPasswordUS()+"'WHERE id="+usuario.getIdUS();
 		new DBmanager().modificar(querymodificarUS);
 		
+	}
+	
+	public ArrayList<Usuario> listarUsuario(){
+		String queryUS = "SELECT * FROM usuario;";
+		
+		return dbUS.listarUsuario(queryUS);
 	}
 
 }
