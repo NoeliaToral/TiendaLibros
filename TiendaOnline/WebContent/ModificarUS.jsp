@@ -11,24 +11,29 @@
 		<form action="AltaUsuario" method="POST">
 		<table>
 		<tr>
-			<th>nombre</th>
-			<td><input type="text" name="nombre" value="${Usuario.nombreUS}"/></td>
+			<td>ID</td>
+			<td><input type="text" name="" disabled="disabled" value="${usuario.idUS }"/></td>
+			<td><input type="hidden" name="id" value="${usuario.idUS }"/></td>
 		</tr>
 		<tr>
-			<th>direccion</th>
-			<td><input type="text" name="direccion" value="${Usuario.direccionUS}"/></td>
+			<td>nombre</td>
+			<td><input type="text" name="nombreUS" value="${usuario.nombreUS}"/></td>
 		</tr>
 		<tr>
-			<th>correo</th>
-			<td><input type="text" name="idioma" value="${Usuario.mailUS}"/></td>
+			<td>direccion</td>
+			<td><input type="text" name="direccionUS" value="${usuario.direccionUS}"/></td>
 		</tr>
 		<tr>
-			<th>cont</th>
-			<td><input type="text" name="precio" value="${Usuario.passwordUS}"/></td>
+			<td>correo</td>
+			<td><input type="text" name="mailUS" value="${usuario.mailUS}"/></td>
+		</tr>
+		<tr>
+			<td>cont</td>
+			<td><input type="text" name="passwordUS" value="${usuario.passwordUS}"/></td>
 		</tr>
 		</table>
 		<input type="submit" value="Modificar datos usuario" />
-		<input type="hidden" name="Modificar" value="Modificar" />
+		<input type="hidden" name="opcion" value="modificarUS"/>
 		</form>
 </body>
 </html>

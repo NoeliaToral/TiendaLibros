@@ -18,6 +18,7 @@
 				<th><label for="direccionUS">Direccion usuario:</label></th>
 				<th><label for="mailUS">Correo:</label></th>
 				<th><label for="passwordUS">Password usuario:</label></th>
+				<th><label for="opcionesUS">Opciones:</label></th>
 			</tr>
 				<c:forEach var="usuario" items="${listadoUS}">
 				<tr>
@@ -27,7 +28,7 @@
 					<td><c:out value="${usuario.mailUS}"></c:out></td>
 					<td><c:out value="${usuario.passwordUS}"></c:out></td>
 					<td><a href="AltaUsuario?opcion=paginaModificarUS&id=${usuario.idUS}">ModificarUS</a></td>
-					<td><a href="AltaUsuario?opcioneliminarUS">EliminarUS</a></td>
+					<td><a href="AltaUsuario?opcion=eliminarUS&id=${usuario.idUS}">EliminarUS</a></td>
 				</tr>
 				</c:forEach>
 			</table>

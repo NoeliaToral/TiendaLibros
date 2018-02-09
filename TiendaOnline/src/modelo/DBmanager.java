@@ -118,7 +118,7 @@ public class DBmanager {
 		st=con.createStatement();
 		rs=st.executeQuery(query);
 		rs.next();
-	    usuario = new Usuario(rs.getString("nombre"),rs.getString("direccion"),rs.getString("correo"),rs.getInt("is"),rs.getString("cont"));
+	    usuario = new Usuario(rs.getString("nombre"),rs.getString("direccion"),rs.getString("correo"),rs.getInt("id"),rs.getString("cont"));
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}

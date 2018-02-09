@@ -34,7 +34,7 @@ public class BackOfficeUS {
 	public void eliminarUsuario(int idUS){
 		
 		String querydeleteUS= "DELETE FROM usuario WHERE id="+ idUS;
-		new DBmanager().modificar(querydeleteUS);
+		dbUS.modificar(querydeleteUS);
 	}
 	
 	public Usuario buscarUsuario(int idUS){
@@ -43,9 +43,9 @@ public class BackOfficeUS {
 	}
 	
 	public void modificarUsuario(Usuario usuario){
-		String querymodificarUS="UPDATE usuario SET nombre='"+usuario.getNombreUS()+"', correo='"+usuario.getMailUS()+
-				"', direccion='"+usuario.getDireccionUS()+"', cont='"+usuario.getPasswordUS()+"'WHERE id="+usuario.getIdUS();
-		new DBmanager().modificar(querymodificarUS);
+		String querymodificarUS="UPDATE usuario SET nombre='"+usuario.getNombreUS()+"', direccion='"+usuario.getDireccionUS()+
+				"', correo='"+usuario.getMailUS()+"', cont='"+usuario.getPasswordUS()+"' WHERE id="+usuario.getIdUS();
+		dbUS.modificar(querymodificarUS);
 		
 	}
 	
