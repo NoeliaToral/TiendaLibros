@@ -34,7 +34,7 @@
 	<div class="header_top">
 		<div class="container">
 			<div class="logo">
-				<a href="index.html"><img src="images/logo.png" alt=""/></a>
+				<a href="inicio.jsp"><h1>Libreria Acercandría</h1></a>
 			</div>
 			<ul class="shopping_grid">
 			      <a href="#"><li>Join</li></a>
@@ -49,13 +49,10 @@
 		<div class="container">
 				<a class="toggleMenu" href="#">Menu</a>
 				<ul class="nav">
-					<li class="active"><a href="index.html" data-hover="Home">Home</a></li>
-					<li><a href="about.html" data-hover="About Us">About Us</a></li>
-					<li><a href="careers.html" data-hover="Careers">Careers</a></li>
-					<li><a href="contact.html" data-hover="Contact Us">Contact Us</a></li>
-					<li><a href="404.html" data-hover="Company Profile">Company Profile</a></li>
-					<li><a href="register.html" data-hover="Company Registration">Company Registration</a></li>
-					<li><a href="wishlist.html" data-hover="Wish List">Wish List</a></li>
+					<li class="active"><a href="AltaLibro?opcion=listado" data-hover="Home">Inicio</a></li>
+					<li><a href="Administracion.html" data-hover="Administracion">Acceso administración</a></li>
+					<li><a href="AltaLibro?opcion=listadoCliente" data-hover="Acceso clientes">Acceso clientes</a></li>
+					<li><a href="AltaUsuario.html" data-hover="Registro cliente">Registro cliente</a></li>
 				 </ul>
 				 <script type="text/javascript" src="js/nav.js"></script>
 	      </div><!-- end h_menu4 -->
@@ -101,70 +98,17 @@
 	   <div class="col-md-3 sidebar_box">
 	   	 <div class="sidebar">
 			<div class="menu_box">
-		    <h3 class="menu_head">Products Menu</h3>
+		    <h3 class="menu_head">Categorias</h3>
 			  <ul class="menu">
-				<li class="item1"><a href="#"><img class="arrow-img" src="images/f_menu.png" alt=""/> Man</a>
-					<ul class="cute">
-						<li class="subitem1"><a href="#">Cute Kittens </a></li>
-						<li class="subitem2"><a href="#">Strange Stuff </a></li>
-						<li class="subitem3"><a href="#">Automatic Fails </a></li>
-					</ul>
+				<li class="item1"><a href="#"><img class="arrow-img" src="images/f_menu.png" alt=""/>Novelas</a>
 				</li>
-				<li class="item2"><a href="#"><img class="arrow-img" src="images/f_menu.png" alt=""/>Women</a>
-					<ul class="cute">
-						<li class="subitem1"><a href="#">Cute Kittens </a></li>
-						<li class="subitem2"><a href="#">Strange Stuff </a></li>
-						<li class="subitem3"><a href="#">Automatic Fails </a></li>
-					</ul>
+				<li class="item2"><a href="#"><img class="arrow-img" src="images/f_menu.png" alt=""/>Aventura</a>
 				</li>
-				<li class="item3"><a href="#"><img class="arrow-img" src="images/f_menu.png" alt=""/>Fashion 2015</a>
-					<ul class="cute">
-						<li class="subitem1"><a href="#">Cute Kittens </a></li>
-						<li class="subitem2"><a href="#">Strange Stuff </a></li>
-						<li class="subitem3"><a href="#">Automatic Fails</a></li>
-					</ul>
+				<li class="item3"><a href="#"><img class="arrow-img" src="images/f_menu.png" alt=""/>Ciencia ficción</a>
 				</li>
-				<li class="item4"><a href="#"><img class="arrow-img" src="images/f_menu.png" alt=""/>Kids</a>
-					<ul class="cute">
-						<li class="subitem1"><a href="#">Cute Kittens </a></li>
-						<li class="subitem2"><a href="#">Strange Stuff </a></li>
-						<li class="subitem3"><a href="#">Automatic Fails </a></li>
-					</ul>
+				<li class="item4"><a href="#"><img class="arrow-img" src="images/f_menu.png" alt=""/>Informática</a>
 				</li>
-				<li class="item5"><a href="#"><img class="arrow-img" src="images/f_menu.png" alt=""/>Jeans</a>
-					<ul class="cute">
-						<li class="subitem1"><a href="#">Cute Kittens </a></li>
-						<li class="subitem2"><a href="#">Strange Stuff </a></li>
-						<li class="subitem3"><a href="#">Automatic Fails </a></li>
-					</ul>
-				</li>
-				<li class="item6"><a href="#"><img class="arrow-img" src="images/f_menu.png" alt=""/>Tshirt</a>
-					<ul class="cute">
-						<li class="subitem1"><a href="#">Cute Kittens </a></li>
-						<li class="subitem2"><a href="#">Strange Stuff </a></li>
-						<li class="subitem3"><a href="#">Automatic Fails </a></li>
-					</ul>
-				</li>
-				<li class="item7"><a href="#"><img class="arrow-img" src="images/f_menu.png" alt=""/>Top Fashion</a>
-					<ul class="cute">
-						<li class="subitem1"><a href="#">Cute Kittens </a></li>
-						<li class="subitem2"><a href="#">Strange Stuff </a></li>
-						<li class="subitem3"><a href="#">Automatic Fails </a></li>
-					</ul>
-				</li>
-				<li class="item8"><a href="#"><img class="arrow-img" src="images/f_menu.png" alt=""/>Summer Collection</a>
-					<ul class="cute">
-						<li class="subitem1"><a href="#">Cute Kittens </a></li>
-						<li class="subitem2"><a href="#">Strange Stuff </a></li>
-						<li class="subitem3"><a href="#">Automatic Fails </a></li>
-					</ul>
-				</li>
-				<li class="item9"><a href="#"><img class="arrow-img" src="images/f_menu.png" alt=""/>Special Offer</a>
-					<ul class="cute">
-						<li class="subitem1"><a href="#">Cute Kittens </a></li>
-						<li class="subitem2"><a href="#">Strange Stuff </a></li>
-						<li class="subitem3"><a href="#">Automatic Fails </a></li>
-					</ul>
+				<li class="item5"><a href="#"><img class="arrow-img" src="images/f_menu.png" alt=""/>Románticas</a>
 				</li>
 			</ul>
 		</div>
@@ -189,38 +133,9 @@
 			});
 		</script>
        </div>
-		    <div class="delivery">
-				<img src="images/delivery.jpg" class="img-responsive" alt=""/>
-				<h3>Delivering</h3>
-				<h4>World Wide</h4>
-			</div>
-			<div class="twitter">
-			   <h3>Latest From Twitter</h3>
-			   <ul class="twt1">
-			   	  <i class="twt"> </i>
-			   	  <li class="twt1_desc"><span class="m_1">@Contrary</span> to popular belief, Lorem Ipsum is<span class="m_1"> not simply</span></li>
-			   	  <div class="clearfix"> </div>
-			   </ul>
-			   <ul class="twt1">
-			   	  <i class="twt"> </i>
-			   	  <li class="twt1_desc"><span class="m_1">There are many</span> variations of passages of Lorem Ipsum available, but the majority <span class="m_1">have suffered</span></li>
-			   	  <div class="clearfix"> </div>
-			   </ul>
-			   <ul class="twt1">
-			   	  <i class="twt"> </i>
-			   	  <li class="twt1_desc"><span class="m_1">Lorem Ipsum</span> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has <span class="m_1">been the industry's standard dummy text ever</span></li>
-			   	  <div class="clearfix"> </div>
-			   </ul>
-			</div>
-			<div class="clients">
-				<h3>Our Happy Clients</h3>
-				<h4>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.</h4>
-			   <ul class="user">
-			   	<i class="user_icon"></i>
-			   	<li class="user_desc"><a href="#"><p>John Doe, Company Info</p></a></li>
-			   	<div class="clearfix"> </div>
-			   </ul>
-			</div>
+		    
+			
+				
 	   </div> 
 	   
 	  <div class="col-md-9 content_right ">
@@ -248,17 +163,15 @@
 	  </div>  	    
 	</div>
 </div>
-<div class="footer_bg">
-</div>
+<div class="footer_bg"></div>
 <div class="footer">
 	<div class="container">
 		<div class="col-md-3 f_grid1">
-			<h3>About</h3>
-			<a href="#"><img src="images/logo.png" alt=""/></a>
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+			<a href="#">Librería Acerandría</a>
+			<p>En esta librería puedes encontrar casi cualquier libro.</p>
 		</div>
 		<div class="col-md-3 f_grid1 f_grid2">
-			<h3>Follow Us</h3>
+			<h3>Siguenoss</h3>
 			<ul class="social">
 				<li><a href=""> <i class="fb"> </i><p class="m_3">Facebook</p><div class="clearfix"> </div></a></li>
 			    <li><a href=""><i class="tw"> </i><p class="m_3">Twittter</p><div class="clearfix"> </div></a></li>
@@ -267,14 +180,15 @@
 			</ul>
 		</div>
 		<div class="col-md-6 f_grid3">
-			<h3>Contact Info</h3>
-			<ul class="list">
-				<li><p>Phone : 1.800.254.5487</p></li>
-				<li><p>Fax : 1.800.254.2548</p></li>
-				<li><p>Email : <a href="mailto:info(at)fashionpress.com"> info(at)fashionpress.com</a></p></li>
-			</ul>
+			<h3>Contáctanos</h3>
+				<ul class="list">
+					<li><p>Noelia Toral Jiménez</p></li>
+					<li><p>Raul Soriano</p></li>	
+					<li><p>Javier Romero </p></li>	
+				</ul>
 			<ul class="list1">
-				<li><p>Aliquam augue a bibendum ipsum diam, semper porttitor libero elit egestas gravida, ut quam, nunc taciti</p></li>
+				<li><p>Nos puedes encontrar en:</p></li>
+				<li><p>Calle Anabel de Segura nº11</p></li>
 			</ul>
 			<div class="clearfix"> </div>
 		</div>
@@ -284,15 +198,14 @@
        	<div class="container">
        		<div class="cssmenu">
 				<ul>
-					<li class="active"><a href="login.html">Privacy Policy</a></li> .
-					<li><a href="checkout.html">Terms of Service</a></li> .
-					<li><a href="checkout.html">Creative Rights Policy</a></li> .
-					<li><a href="login.html">Contact Us</a></li> .
-					<li><a href="register.html">Support & FAQ</a></li>
+					<li class="#"><a href="login.html">Política de privacidad</a></li> .
+					<li><a href="#">Términos del serivcio</a></li> .
+					<li><a href="#">Política de cookies</a></li> .
+					<li><a href="#l">Preguntas frecuentes</a></li> .
 				</ul>
 			</div>
 			<div class="copy">
-			    <p>&copy;  2015 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
+			    <p>&copy;  2018 Template by <a href="inicio.jsp" target="_blank">Acercandría</a></p>
 		    </div>
 		    <div class="clearfix"> </div>
        	</div>
