@@ -54,9 +54,9 @@ public class AltaLibro extends HttpServlet {
 		case "listado":
 			logger.info("Listando libros");
 			request.setAttribute("listado",backOffice.listarLibros());
-			//rd=request.getRequestDispatcher("Listado.jsp");
+			rd=request.getRequestDispatcher("Listado.jsp");
 			//System.out.println("------"+backOffice.listarLibros());
-			rd=request.getRequestDispatcher("index2.jsp");
+			//rd=request.getRequestDispatcher("index2.jsp");
 			rd.forward(request,response);
 			break;
 		case "listadoCliente":

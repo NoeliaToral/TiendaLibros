@@ -111,8 +111,8 @@
    
     <div class="form-group">        
       <div class="col-sm-offset-7 col-sm-10">
-        <button type="submit" class="btn btn-default">Enviar</button>
-        <input type="hidden" name="opcion" value="Modificar datos" />
+        <button type="submit" class="btn btn-default" value="Modificar datos">Enviar</button>
+        <input type="hidden" name="opcion" value="modificar" />
       </div>
     </div>
   </form>

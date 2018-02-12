@@ -63,7 +63,8 @@
     <div class="form-group">
       <label class="control-label col-sm-4" for="idUS" >ID:</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" value="${usuario.idUS }" id="nombreUS" name="nombreUS">
+      	<input type="text" name="" disabled="disabled" value="${usuario.idUS }">
+        <input type="hidden" class="form-control" value="${usuario.idUS }" id="idUS" name="id">
       </div>
     </div>
     <div class="form-group">
