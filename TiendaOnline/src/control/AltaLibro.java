@@ -11,12 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.BackOffice;
 import modelo.Libro;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 @WebServlet("/AltaLibro")
 public class AltaLibro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
+	private static final Logger logger=LogManager.getLogger("AltaLibro");
 	//Métodos
 	/**
 	 * <p>Método obtenerDatosLibro nos devuelve los datos del un objeto Libro dada una query</p>
@@ -31,7 +32,9 @@ public class AltaLibro extends HttpServlet {
 
 
     public AltaLibro() {
+       logger.info("Ejecutando AltaLibro");
        backOffice = new BackOffice();
+       logger.info("Nuevo objeto BackOffice");
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,6 +43,7 @@ public class AltaLibro extends HttpServlet {
 		switch(opcion){
 		
 		case "alta":
+			logger.info("Insertando libro");
 			backOffice.insertaLibro(obtenerDatosLibro( request,  response));		
 			break;
 		case "paginaModificar":
@@ -48,6 +52,7 @@ public class AltaLibro extends HttpServlet {
 			rd.forward(request,response);
 			break;
 		case "listado":
+			logger.info("Listando libros");
 			request.setAttribute("listado",backOffice.listarLibros());
 			//rd=request.getRequestDispatcher("Listado.jsp");
 			//System.out.println("------"+backOffice.listarLibros());
@@ -55,15 +60,18 @@ public class AltaLibro extends HttpServlet {
 			rd.forward(request,response);
 			break;
 		case "listadoCliente":
+			logger.info("Listando clientes");
 			request.setAttribute("listado",backOffice.listarLibros());
 			rd=request.getRequestDispatcher("ListadoClientes.jsp");
 			rd.forward(request,response);
 			break;
 		case "modificar":
+			logger.info("Modificando libro");
 			backOffice.modificarlibro(obtenerDatosLibro(request,response));
 			response.sendRedirect("AltaLibro?opcion=listado");
 			break;
 		case "eliminar":
+			logger.info("Eliminando libro");
 			backOffice.eliminarlibro(Long.parseLong(request.getParameter("isbn")));
 			response.sendRedirect("AltaLibro?opcion=listado");
 			break;
@@ -86,6 +94,7 @@ public class AltaLibro extends HttpServlet {
 	}
 	
 	private Libro obtenerDatosLibro(HttpServletRequest request, HttpServletResponse response){
+		logger.info("Obteniendo datos de libro");
 		Libro libro = new Libro();
 		libro.setISBN(Long.parseLong(request.getParameter("isbn")));
 		libro.setTitulo(request.getParameter("titulo"));
@@ -95,6 +104,7 @@ public class AltaLibro extends HttpServlet {
 		libro.setAutor(request.getParameter("autor"));
 		libro.setAnio(Integer.parseInt(request.getParameter("fecha")));
 		libro.setSinopsis(request.getParameter("sinopsis"));
+		logger.info("Datos de libro obtenidos");
 		
 		return libro;
 		
