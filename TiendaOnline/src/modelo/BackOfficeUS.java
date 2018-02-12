@@ -54,5 +54,21 @@ public class BackOfficeUS {
 		
 		return dbUS.listarUsuario(queryUS);
 	}
+	
+	public boolean existeUsuario(String usuario,String contraseña){
+		String query="SELECT * FROM usuario WHERE nombre='"+usuario+"' AND cont='"+contraseña+"'";
+		if(dbUS.buscarUsuario(query)!=null){
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean existeAdmin(String usuario,String contraseña){
+		String query="SELECT * FROM administradores WHERE nombre='"+usuario+"' AND contraseña='"+contraseña+"'";
+		if(dbUS.buscarAdmin(query)!=null){
+			return true;
+		}
+		return false;
+	}
 
 }
