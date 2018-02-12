@@ -67,6 +67,16 @@ public class AltaLibro extends HttpServlet {
 			backOffice.eliminarlibro(Long.parseLong(request.getParameter("isbn")));
 			response.sendRedirect("AltaLibro?opcion=listado");
 			break;
+		case "ventas":
+			request.setAttribute("listado",backOffice.darNumeroVentas());
+			rd=request.getRequestDispatcher("numVentas.jsp");
+			rd.forward(request,response);
+			break;
+		case "recomendado":
+			request.setAttribute("listado",backOffice.darRecomendando());
+			rd=request.getRequestDispatcher("darRecomendado.jsp");
+			rd.forward(request,response);
+			break;
 		}
 	}
 

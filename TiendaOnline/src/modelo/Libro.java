@@ -11,6 +11,8 @@ public class Libro {
 	private int anio;
 	private String sinopsis;
 	String url;
+	private int numVentas;
+	private boolean recomendado;
 
 	public Libro() {
 		super();
@@ -103,6 +105,23 @@ public class Libro {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+
+	public int getNumVentas() {
+		return numVentas;
+	}
+
+	public void setNumVentas(int numVentas) {
+		this.numVentas = numVentas;
+	}
+
+	public boolean isRecomendado() {
+		return recomendado;
+	}
+
+	public void setRecomendado(boolean recomendado) {
+		this.recomendado = recomendado;
 	}
 
 	@Override

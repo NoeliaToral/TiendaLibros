@@ -5,10 +5,35 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/style2.css" rel='stylesheet' type='text/css' />
 <title>Insert title here</title>
 </head>
 <body>
+<div class="header">
+	<div class="header_top">
+		<div class="container">
+			<div class="logo">
+				<a href="inicio.jsp"><h1>Libreria Acercandría</h1></a>
+			</div>
+		    <div class="clearfix"> </div>
+		</div>
+	</div>
+	<div class="h_menu4"><!-- start h_menu4 -->
+		<div class="container">
+				<a class="toggleMenu" href="#">Menu</a>
+				<ul class="nav">
+					<li class="active"><a href="AltaLibro?opcion=listado" data-hover="Home">Inicio</a></li>
+					<li><a href="Administracion.html" data-hover="Administracion">Acceso administración</a></li>
+					<li><a href="AltaLibro?opcion=listadoCliente" data-hover="Acceso clientes">Acceso clientes</a></li>
+					<li><a href="AltaUsuario.html" data-hover="Registro cliente">Registro cliente</a></li>
+					<li><a href="AltaLibro?opcion=ventas" data-hover="Top ventas">Top ventas</a></li>
+					<li><a href="AltaLibro?opcion=recomendado" data-hover="Libros recomendados">Libros recomendados</a></li>
+				 </ul>
+				 <script type="text/javascript" src="js/nav.js"></script>
+	      </div><!-- end h_menu4 -->
+     </div>
+</div>
 	
 		<h1>Listado de libros.</h1>
 		<form action="AltaLibro" method="post">

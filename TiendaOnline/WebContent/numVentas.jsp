@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -28,8 +29,7 @@
     });
 </script>
 <script type="text/javascript" src="js/hover_pack.js"></script>
-</head>
-<body>
+
 <div class="header">
 	<div class="header_top">
 		<div class="container">
@@ -48,42 +48,36 @@
 					<li><a href="AltaLibro?opcion=listadoCliente" data-hover="Acceso clientes">Acceso clientes</a></li>
 					<li><a href="AltaUsuario.html" data-hover="Registro cliente">Registro cliente</a></li>
 					<li><a href="AltaLibro?opcion=ventas" data-hover="Top ventas">Top ventas</a></li>
-					<li><a href="AltaLibro?opcion=recomendado" data-hover="Libros recomendados">Libros recomendados</a></li>
+					<li><a href="AltaLibro?opcion=recomendado" data-hover="Libros recoemndados">Libros recomendados</a></li>
 				 </ul>
 				 <script type="text/javascript" src="js/nav.js"></script>
 	      </div><!-- end h_menu4 -->
      </div>
 </div>
-
-<h3>Listado de libros.</h3>
+</head>
+<body>
+<div class="container">
+<h1>Top ventas</h1>
 		<form action="AltaLibro" method="post">
-			<table>
-			<tr>
-				<th><label for="ISBN">ISBN:</label></th>
-				<th><label for="titulo">Título:</label></th>
-				<th><label for="numPaginas">Nº páginas:</label></th>
-				<th><label for="idioma">Idioma:</label></th>
-				<th><label for="precio">Precio:</label></th>
-				<th><label for="autor">Autor:</label></th>
-				<th><label for="fecha">Año:</label></th>
-				<th><label for="opciones">Opciones:</label></th>
-				
-			</tr>
-				<c:forEach var="libro" items="${listado}">
-					<tr>
+			<div class="col-md-9 content_right centrar">
+			<c:forEach var="libro" items="${listado}">
+					<div class="contenedor">
+					<span><img class="imagenLibros" src="${libro.url}"></span>
 					
-						<td><c:out value="${libro.ISBN}"></c:out></td>
-						<td><c:out value="${libro.titulo}"></c:out></td>
-						<td><c:out value="${libro.numPaginas}"></c:out></td>
-						<td><c:out value="${libro.idioma}"></c:out></td>
-						<td><c:out value="${libro.precio}"></c:out></td>
-						<td><c:out value="${libro.autor}"></c:out></td>
-						<td><c:out value="${libro.anio}"></c:out></td>
-						<td><a href="http://localhost:3306/TiendaOnline/ListadoClientes.jsp">Comprar libro</a></td>
-						</tr>
-				</c:forEach>
-			</table>
+						<div class="columnasLibros">
+							ISBN: <c:out value="${libro.ISBN}"></c:out><br>
+							Titulo: <c:out value="${libro.titulo}"></c:out><br>
+							Número de páginas: <c:out value="${libro.numPaginas}"></c:out><br>
+							Idioma: <c:out value="${libro.idioma}"></c:out><br>
+							Precio: <c:out value="${libro.precio}"></c:out><br>
+							Autor: <c:out value="${libro.autor}"></c:out><br>
+							Año: <c:out value="${libro.anio}"></c:out>			
+						</div>
+					</div>
+			</c:forEach>
+			</div>
 		</form>
+</div>
 <div class="footer_bg"></div>
 <div class="footer">
 	<div class="container">
@@ -132,4 +126,4 @@
        	</div>
 </div>
 </body>
-</html>	
+</html>

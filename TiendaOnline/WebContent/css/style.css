@@ -26,6 +26,7 @@ body a{
 .logo{
 	float:left;
 	margin-top:22px;
+	margin-bottom:22px;
 }
 ul.shopping_grid{
 	padding:0;

@@ -38,12 +38,6 @@
 			<div class="logo">
 				<a href="inicio.jsp"><h1>Libreria Acercandría</h1></a>
 			</div>
-			<ul class="shopping_grid">
-			      <a href="#"><li>Join</li></a>
-			      <a href="login.html"><li>Sign In</li></a>
-			      <a href="#"><li><span class="m_1">Shopping Bag</span>&nbsp;&nbsp;(0) &nbsp;<img src="images/bag.png" alt=""/></li></a>
-			      <div class="clearfix"> </div>
-			</ul>
 		    <div class="clearfix"> </div>
 		</div>
 	</div>
@@ -55,13 +49,15 @@
 					<li><a href="Administracion.html" data-hover="Administracion">Acceso administración</a></li>
 					<li><a href="AltaLibro?opcion=listadoCliente" data-hover="Acceso clientes">Acceso clientes</a></li>
 					<li><a href="AltaUsuario.html" data-hover="Registro cliente">Registro cliente</a></li>
+					<li><a href="AltaLibro?opcion=ventas" data-hover="Top ventas">Top ventas</a></li>
+					<li><a href="AltaLibro?opcion=recomendado" data-hover="Libros recomendados">Libros recomendados</a></li>
 				 </ul>
 				 <script type="text/javascript" src="js/nav.js"></script>
 	      </div><!-- end h_menu4 -->
      </div>
 </div>
 <body>
-<body>
+
 	<div class="container">
 		<h2 class="tituloH2">Listado de Usuarios</h2>
 			<form action="AltaUsuario" method="post">

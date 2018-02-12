@@ -64,4 +64,17 @@ public class BackOffice {
 		
 		return db.listarLibros(query);
 	}
+	
+	public ArrayList<Libro> darNumeroVentas(){
+		String query = "select * from libros order by numeroVentas;";
+		
+		return db.listarLibros(query);
+	}
+	
+	public ArrayList<Libro> darRecomendando(){
+		String query = "select * from libros where recomendado='true';";
+		
+		return db.listarLibros(query);
+	}
+	
 }
