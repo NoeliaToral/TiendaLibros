@@ -1,6 +1,11 @@
 package modelo;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Libro {
+	
+	private static final Logger logger=LogManager.getLogger("Libro");
 
 	private long ISBN;
 	private String titulo;
@@ -10,15 +15,18 @@ public class Libro {
 	private String autor;
 	private int anio;
 	private String sinopsis;
+	String url;
 
 	public Libro() {
 		super();
+		logger.info("Ejecutando Libro");
 
 	}
 
 	public Libro(long iSBN, String titulo, int numPaginas, String idioma, double precio, String autor, int anio,
-			String sinopsis) {
+			String sinopsis, String url) {
 		super();
+		logger.info("Ejecutando Libro");
 		this.ISBN = iSBN;
 		this.titulo = titulo;
 		this.numPaginas = numPaginas;
@@ -27,6 +35,7 @@ public class Libro {
 		this.autor = autor;
 		this.anio = anio;
 		this.sinopsis = sinopsis;
+		this.url = url;
 	}
 
 
@@ -92,6 +101,15 @@ public class Libro {
 
 	public void setSinopsis(String sinopsis) {
 		this.sinopsis = sinopsis;
+	}
+	
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	@Override
