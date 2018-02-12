@@ -135,8 +135,25 @@ public class DBmanager {
 		try{
 		st=con.createStatement();
 		rs=st.executeQuery(query);
-		rs.next();
+		while(rs.next()){
 	    usuario = new Usuario(rs.getString("nombre"),rs.getString("direccion"),rs.getString("correo"),rs.getInt("id"),rs.getString("cont"));
+		}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return usuario;
+	}
+	
+	public Usuario buscarAdmin(String query){
+		Usuario usuario = null;
+		conectaBD();
+		try{
+		st=con.createStatement();
+		rs=st.executeQuery(query);
+		while(rs.next()){
+	    usuario = new Usuario(rs.getString("nombre"),rs.getString("direccion"),rs.getString("correo"),rs.getInt("id"),rs.getString("contraseña"));
+		}
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -158,7 +175,6 @@ public class DBmanager {
 				con.close();
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
