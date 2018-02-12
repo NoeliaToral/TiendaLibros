@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <c:redirect url="http://localhost:8080/TiendaOnline/AltaLibro?opcion=listado"/>
+  <c:redirect url="http://localhost:8080/TiendaOnline/AltaLibro?opcion=inicio"/>
 
 </body>
 </html>

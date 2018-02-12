@@ -85,6 +85,12 @@ public class AltaLibro extends HttpServlet {
 			rd=request.getRequestDispatcher("darRecomendado.jsp");
 			rd.forward(request,response);
 			break;
+		case "inicio":
+			logger.info("Listando libros");
+			request.setAttribute("listado",backOffice.listarLibros());
+			rd=request.getRequestDispatcher("index2.jsp");
+			rd.forward(request,response);
+			break;
 		}
 	}
 

@@ -43,7 +43,7 @@
 		<div class="container">
 				<a class="toggleMenu" href="#">Menu</a>
 				<ul class="nav">
-					<li class="active"><a href="AltaLibro?opcion=listado" data-hover="Home">Inicio</a></li>
+					<li class="active"><a href="AltaLibro?opcion=inicio" data-hover="Home">Inicio</a></li>
 					<li><a href="Administracion.html" data-hover="Administracion">Acceso administración</a></li>
 					<li><a href="AltaLibro?opcion=listadoCliente" data-hover="Acceso clientes">Acceso clientes</a></li>
 					<li><a href="AltaUsuario.html" data-hover="Registro cliente">Registro cliente</a></li>
