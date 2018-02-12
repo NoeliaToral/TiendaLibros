@@ -4,14 +4,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class BackOffice {
-	
+	private static final Logger logger=LogManager.getLogger("BackOffice");
 
 	private DBmanager db;
 	
 	public BackOffice() {
 		super();
+		logger.info("Ejecutando Backoffice");
 		db = new DBmanager();
+		logger.info("Nuevo Objeto DBmanager");
 	}
 
 	
@@ -27,6 +32,7 @@ public class BackOffice {
 	 * @param	Libro libro.
 	 */
 	public void insertaLibro(Libro libro){
+		logger.info("Ejecutando insertandoLibro (BackOffice)");
 		System.out.println(libro.getISBN());
 		System.out.println(libro.getTitulo());
 		System.out.println(libro.getNumPaginas());		
@@ -41,12 +47,13 @@ public class BackOffice {
 	}
 
 	public void eliminarlibro(long isbn){
-
+		logger.info("Ejecutando eliminarlibro (BackOffice)");
 		String querydelete= "DELETE FROM Libros WHERE ISBN="+ isbn;
 		db.modificar(querydelete);
 	}
 	
 	public Libro buscarLibro(long isbn){
+		logger.info("Ejecutando buscarLibro");
 		String query="SELECT * FROM LIBROS WHERE ISBN="+isbn;
 		return db.buscarLibro(query);
 		
@@ -54,12 +61,16 @@ public class BackOffice {
 	}
 	
 	public void modificarlibro(Libro libro){
+		logger.info("Ejecutando modificarlibro (BackOffice)");
+		
 		String querymodificar="UPDATE Libros SET Titulo='"+libro.getTitulo()+"' , NumPaginas="+libro.getNumPaginas()+", Idioma='"+libro.getIdioma()+
 				"', Precio="+libro.getPrecio()+", Autor='"+libro.getAutor()+"', fechaPublicacion="+libro.getAnio()+", Sinopsis='"+libro.getSinopsis()+"'WHERE ISBN="+libro.getISBN();
 		db.modificar(querymodificar);
 		
 	}
 	public ArrayList<Libro> listarLibros(){
+		logger.info("Ejecutando listarLibros (BackOffice)");
+		
 		String query = "SELECT * FROM LIBROS;";
 		
 		return db.listarLibros(query);

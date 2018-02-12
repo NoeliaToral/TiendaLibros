@@ -1,6 +1,11 @@
 package modelo;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Usuario {
+	
+	private static final Logger logger=LogManager.getLogger("Usuario");
 	
 	/**
 	 * <p> Clase usuario cons sus correspondientes atributos</p>
@@ -18,11 +23,13 @@ public class Usuario {
 	
 	public Usuario(){
 		super();
+		logger.info("Ejecutando Usuario");
 	}
 	
 	
 	public Usuario(String nombreUS, String direccionUS, String mailUS, int idUS, String passwordUS){
 		super();
+		logger.info("Ejecutando Usuario");
 		this.nombreUS=nombreUS;
 		this.direccionUS=direccionUS;
 		this.mailUS=mailUS;

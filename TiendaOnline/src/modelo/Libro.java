@@ -1,6 +1,11 @@
 package modelo;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Libro {
+	
+	private static final Logger logger=LogManager.getLogger("Libro");
 
 	private long ISBN;
 	private String titulo;
@@ -14,12 +19,14 @@ public class Libro {
 
 	public Libro() {
 		super();
+		logger.info("Ejecutando Libro");
 
 	}
 
 	public Libro(long iSBN, String titulo, int numPaginas, String idioma, double precio, String autor, int anio,
 			String sinopsis, String url) {
 		super();
+		logger.info("Ejecutando Libro");
 		this.ISBN = iSBN;
 		this.titulo = titulo;
 		this.numPaginas = numPaginas;
